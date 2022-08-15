@@ -28,9 +28,21 @@ namespace Day9_AddressBook
             con.Email = Console.ReadLine();
             entries.Add(con);
             Console.WriteLine("\n\n\nContact Added\n\n\n\n\n\n");
-            Console.WriteLine(entries);
         }
 
-    }
+        internal void Edit()
+        {
+            
+        }
 
+        public void Display()
+        {
+            foreach (Contacts entry in entries)
+            {
+                Console.WriteLine(entry.Firstname);
+            }
+        }
+       
+
+    }
 }
