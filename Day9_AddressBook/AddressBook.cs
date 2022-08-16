@@ -30,6 +30,24 @@ namespace Day9_AddressBook
             Console.WriteLine("\n\n\nContact Added\n\n\n\n\n\n");
         }
 
+        public void Delete()
+        {
+            Console.WriteLine("Enter name");
+            string name = Console.ReadLine();
+            foreach (Contacts entry in entries)
+            {
+                if (entry.Firstname.Equals(name))
+                {
+                    entries.Remove(entry);
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine(name + "is not avaiable into list");
+                }
+            }
+        }
+
         public void Edit()
         {
             Console.WriteLine("Enter the First Name of User");
