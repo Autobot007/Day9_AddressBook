@@ -30,9 +30,80 @@ namespace Day9_AddressBook
             Console.WriteLine("\n\n\nContact Added\n\n\n\n\n\n");
         }
 
-        internal void Edit()
+        public void Edit()
         {
-            
+            Console.WriteLine("Enter the First Name of User");
+            String firstName=Console.ReadLine();
+            foreach (Contacts entry in entries)              
+            {
+                if (firstName.Equals(entry.Firstname))
+                {    
+                    bool save = true;
+                    while (save)
+                    {
+                        Console.WriteLine("First Name : " + entry.Firstname);
+                        Console.WriteLine("Last Name : " + entry.Lastname);
+                        Console.WriteLine("Address : " + entry.Address);
+                        Console.WriteLine("Phone Number: " + entry.Phonenumber);
+                        Console.WriteLine("City: " + entry.City);
+                        Console.WriteLine("State : " + entry.State);
+                        Console.WriteLine("Email : " + entry.Email);
+                        Console.WriteLine("Enter the following to change data\n1.For Firstname\n2.For Lastname\n3.For Address\n4.For Phone Number\n5.For City\n6.For State\n7.Email");
+                        int edit = Convert.ToInt32(Console.ReadLine());
+                        switch (edit)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter the Correct name");
+                                string name = Console.ReadLine();
+                                entry.Firstname = name;
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter the Correct Last Name");
+                                string lastName = Console.ReadLine();
+                                entry.Lastname = lastName;
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter Correct Address");
+                                string address = Console.ReadLine();
+                                entry.Address = address;
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter correct Phone number");
+                                long phoneNumber = Convert.ToInt64(Console.ReadLine());
+                                entry.Phonenumber = phoneNumber;
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter City");
+                                string city = Console.ReadLine();
+                                entry.City = city;
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter State");
+                                string state = Console.ReadLine();
+                                entry.State = state;
+                                break;
+                            case 7:
+                                Console.WriteLine("Enter Email ");
+                                string email = Console.ReadLine();
+                                entry.Email = email;
+                                break;
+                            default:
+                                Console.WriteLine("Please enter Valid input");
+                                break;
+                        }
+                        Console.WriteLine("Enter 1 to save");
+                        int intsave = Convert.ToInt16(Console.ReadLine());
+                        if (intsave == 1)
+                            save = false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Following User does not exist in Database");
+
+                }
+            }
+
         }
 
         public void Display()
